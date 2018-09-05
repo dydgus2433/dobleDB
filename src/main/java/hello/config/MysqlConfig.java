@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -66,7 +65,7 @@ public class MysqlConfig {
 		HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put("hibernate.show_sql", env.getProperty("mysql.jpa.show-sql"));
 		properties.put("hibernate.dialect", env.getProperty("mysql.jpa.properties.hibernate.dialect"));
-		properties.put("hibernate.ddl-auto", env.getProperty("mysql.jpa.hibernate.ddl-auto"));
+		properties.put("hibernate.hbm2ddl.auto", env.getProperty("mysql.jpa.hibernate.ddl-auto"));
 		properties.put("hibernate.naming-strategy", env.getProperty("mysql.jpa.hibernate.naming-starategy"));
 		
 		entityManagerFactoryBean.setJpaPropertyMap(properties);

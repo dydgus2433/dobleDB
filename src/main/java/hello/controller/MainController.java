@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import hello.dao.sqlite.PayDao;
+import hello.dao.sqlite.PayService;
 import hello.domain.h2.Customer;
 import hello.domain.mysql.User;
 import hello.repository.h2.CustomerRepository;
@@ -20,6 +22,9 @@ public class MainController {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private PayService payService;
 
 	@RequestMapping( value = "/add", method = RequestMethod.GET)
 //	@GetMapping(path = "/add")
@@ -40,6 +45,7 @@ public class MainController {
 		return userRepository.findAll();
 	}
 	
+	
 	@RequestMapping( value = "/add1", method = RequestMethod.GET)
 	public @ResponseBody String addNewUser1(@RequestParam String name) {
 		Customer n = new Customer();
@@ -55,5 +61,19 @@ public class MainController {
 		
 		return customerRepository.findAll();
 	}
+	
+	@RequestMapping( value = "/add2", method = RequestMethod.GET)
+	public @ResponseBody String addNewUser2() {
+
+		return payService.getPrc("");
+		
+	}
+	
+//	@RequestMapping( value = "/all2", method = RequestMethod.GET)
+//	public @ResponseBody Iterable<Store> getAllUsers2(){
+//		
+//		return payService.findAll();
+//	}
+	
 
 }

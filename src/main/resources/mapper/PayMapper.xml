@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hello.dao.sqlite.PayDao">
+  <insert id="requestAuthen" parameterType="hello.domain.sqlite.RequestAuthenInfo"
+  	statementType="CALLABLE">
+    <![CDATA[
+  		{
+  			CALL ${inPgEpayAcnt}.REQUEST_PHONE_AUTHEN(
+  			
+  				#{inMbrId },
+  				#{inEncMbrName}
+  				)
+  		}
+  	]]>
+  </insert>
+  
+  
+  <select id="getPrc" parameterType = "string"
+  resultType = "string">
+  	
+  		SELECT A.ID
+  		FROM TEST A
+  		WHERE 1 = 1 
+  		limit 1
+  </select>
+</mapper>

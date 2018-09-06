@@ -64,7 +64,6 @@ public class H2Config {
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
 		
-		//TODO: 중복준거 삭제해야함
 		entityManagerFactoryBean.setPersistenceUnitName("h2JPA");
 
 
